@@ -1,0 +1,63 @@
+body {
+  background-image: url("images/pineapple.jpg");
+  background-size: cover;
+}
+h1 {
+  text-align: center;
+  font-family: 'Impact';
+  font-weight: bold;
+  letter-spacing: 4px;
+  color:red;
+}
+h2{
+  color: #f4b342;
+}
+
+#spent, #showSpent{
+  color: #cc4848;
+  font-size: 40px;
+}
+#balance, #showBalance{
+  color: #307529;
+  font-size: 40px;
+}
+table {
+    width:70%;
+}
+table, th, td {
+    border: 1px solid #d0d8d0;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#expenseTable tr:nth-child(even) {
+    background-color: #eee;
+}
+table#expenseTable tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#expenseTable th {
+    background-color: #404240;
+    color: white;
+    letter-spacing: 2px;
+}
+button {
+  color: #ffffff;
+  border: 2px solid #263d51;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition-duration: 0.4s;
+}
+
+button:hover{
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+label {
+  font-size: 20px;
+  color: #304e68;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+}
