@@ -41,6 +41,51 @@ function addItemToList(){
   as.innerText = totalCost;
   var bs = document.getElementById("showBalance");
   bs.innerText = newBal;
+
+  //HIGHCHARTS START
+
+  $(document).ready(function () {
+      // Build the chart
+      Highcharts.chart('container', {
+          chart: {
+              plotBackgroundColor: null,
+              plotBorderWidth: null,
+              plotShadow: false,
+              type: 'pie'
+          },
+          title: {
+              text: 'Spending and balance chart for August, 2017'
+          },
+          tooltip: {
+              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          },
+          plotOptions: {
+              pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  dataLabels: {
+                      enabled: false
+                  },
+                  showInLegend: true
+              }
+          },
+          series: [{
+              name: 'August Budget',
+              colorByPoint: true,
+              data: [{
+                  name: 'Amount Spent',
+                  y: totalCost,
+                  sliced: true,
+                  selected: true
+              }, {
+                  name: 'Remaining Balance',
+                  y: newBal
+              }, ]
+          }]
+      });
+  });
+
+    //HIGHCHARTS END
 }
 
 function calculateBalance(){
@@ -57,46 +102,3 @@ function getItemValues(){
   paymentType = paymentOption.options[paymentOption.selectedIndex].text;
   cost = document.getElementById("cost").value;
 }
-
-
-$(document).ready(function () {
-
-    // Build the chart
-    Highcharts.chart('container', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: 'Spending and balance chart for August, 2017'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: false
-                },
-                showInLegend: true
-            }
-        },
-        series: [{
-            name: 'August Budget',
-            colorByPoint: true,
-            data: [{
-                name: 'Amount Spent',
-                y: 50,
-                sliced: true,
-                selected: true
-            }, {
-                name: 'Remaining Balance',
-                y: 650
-            }, ]
-        }]
-    });
-});
